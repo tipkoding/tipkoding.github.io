@@ -3,738 +3,798 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Template Artikel | Blog</title>
+    <title>Ngoding Web Modern Itu Mudah</title>
+    <meta name="description" content="Tutorial HTML, CSS, JavaScript dan backend lengkap untuk pemula. Panduan praktis belajar web development dari dasar sampai bisa bikin website.">
+    <meta name="keywords" content="coding untuk pemula, materi coding lengkap, belajar HTML CSS, belajar coding gratis untuk pemula tanpa pengalaman, cara belajar coding dari nol sampai bisa">
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="author" content="ahmad">
+
+    <meta property="og:url" content="https://cerdasia.web.id" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Ngoding Web Modern Itu Mudah" />
+    <meta property="og:description" content="Tutorial HTML, CSS, JavaScript dan backend lengkap untuk pemula. Panduan praktis belajar web development dari dasar sampai bisa bikin website." />
+    <meta property="og:image" content="https://ahmadkuotabaru-netizen.github.io/blog/koder-web.jpg" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@tipkoding" />
+    <meta name="twitter:title" content="Ngoding Web Modern Itu Mudah" />
+    <meta name="twitter:description" content="Tutorial HTML, CSS, JavaScript dan backend lengkap untuk pemula. Panduan praktis belajar web development dari dasar sampai bisa bikin website." />
+    <meta name="twitter:image" content="https://ahmadkuotabaru-netizen.github.io/blog/koder-web.jpg" />
+
+
+    <link rel="icon" href="https://ahmadkuotabaru-netizen.github.io/blog/kode-fav.png" type="image/x-icon">
     <style>
-        /* CSS Reset */
+        /* CSS RESET & VARIABLES */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #64748b;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #e2e8f0;
+            --border: #cbd5e1;
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --max-width: 900px;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background-color: #f8f9fa;
+            color: var(--dark);
+            background: var(--light);
         }
 
-        /* Container */
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header */
-        header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 60px 0;
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
-
-        header p {
-            font-size: 1.2em;
-            opacity: 0.9;
-        }
-
-        /* Main content */
-        .article-content {
+        /* NAVIGATION - RESPONSIVE */
+        .navbar {
             background: white;
-            border-radius: 15px;
-            padding: 40px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            margin-bottom: 40px;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
-        /* Article meta */
+        .nav-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: var(--primary);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark);
+        }
+
+        /* MAIN ARTICLE LAYOUT */
+        .container {
+            max-width: var(--max-width);
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .article-main {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .article-header {
+            margin-bottom: 2rem;
+        }
+
+        .article-title {
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
         .article-meta {
             display: flex;
-            gap: 20px;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #eee;
-            color: #666;
-            font-size: 0.95em;
             flex-wrap: wrap;
+            gap: 1rem 2rem;
+            color: var(--secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--gray);
         }
 
-        .article-meta span {
+        .meta-item {
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 0.5rem;
         }
 
-        .article-meta i {
+        .meta-item i {
             font-style: normal;
-            color: #667eea;
+            font-weight: 500;
+            color: var(--primary);
         }
 
-        /* Featured image */
-        .featured-image {
-            margin-bottom: 30px;
-            border-radius: 10px;
+        .meta-item a {
+            color: var(--secondary);
+            text-decoration: none;
+        }
+
+        .meta-item a:hover {
+            color: var(--primary);
+        }
+
+        /* PERBAIKAN: ARTICLE IMAGE RESPONSIF */
+        .article-image {
+            width: 100%;
+            margin-bottom: 2rem;
+            border-radius: 0.75rem;
             overflow: hidden;
+            background: var(--gray);
         }
 
-        .featured-image img {
+        .article-image img {
             width: 100%;
             height: auto;
             display: block;
-            transition: transform 0.3s ease;
+            object-fit: cover;
         }
 
-        .featured-image img:hover {
-            transform: scale(1.02);
+        /* Style untuk gambar di tengah artikel */
+        .content-image {
+            margin: 2rem 0;
+            text-align: center;
         }
 
-        /* Article typography */
-        .article-body h2 {
-            font-size: 2em;
-            margin: 30px 0 15px;
-            color: #2c3e50;
-        }
-
-        .article-body h3 {
-            font-size: 1.5em;
-            margin: 25px 0 15px;
-            color: #34495e;
-        }
-
-        .article-body p {
-            margin-bottom: 20px;
-            font-size: 1.1em;
-        }
-
-        .article-body blockquote {
-            margin: 30px 0;
-            padding: 20px 30px;
-            background: #f8f9fa;
-            border-left: 4px solid #667eea;
-            font-style: italic;
-            color: #555;
-            border-radius: 0 10px 10px 0;
-        }
-
-        .article-body blockquote p {
-            margin-bottom: 10px;
-        }
-
-        .article-body blockquote cite {
-            display: block;
-            margin-top: 10px;
-            font-size: 0.9em;
-            color: #888;
-            font-style: normal;
-        }
-
-        /* Lists */
-        .article-body ul, 
-        .article-body ol {
-            margin: 20px 0 20px 40px;
-        }
-
-        .article-body li {
-            margin-bottom: 10px;
-            font-size: 1.1em;
-        }
-
-        /* Code blocks */
-        .article-body pre {
-            background: #2d2d2d;
-            color: #f8f8f2;
-            padding: 20px;
-            border-radius: 10px;
-            overflow-x: auto;
-            margin: 30px 0;
-            font-family: 'Courier New', monospace;
-            font-size: 0.95em;
-        }
-
-        .article-body code {
-            background: #f1f1f1;
-            color: #e83e8c;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-family: 'Courier New', monospace;
-            font-size: 0.95em;
-        }
-
-        .article-body pre code {
-            background: transparent;
-            color: inherit;
-            padding: 0;
-        }
-
-        /* Images in article */
-        .article-body img {
+        .content-image img {
             max-width: 100%;
             height: auto;
-            border-radius: 10px;
-            margin: 30px 0;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 0.75rem;
+            box-shadow: var(--shadow);
         }
 
-        /* Table */
-        .article-body table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 30px 0;
+        .content-image figcaption {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--secondary);
+            font-style: italic;
         }
 
-        .article-body th {
-            background: #667eea;
-            color: white;
-            padding: 12px;
-            text-align: left;
+        .article-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
         }
 
-        .article-body td {
-            padding: 12px;
-            border-bottom: 1px solid #eee;
+        .article-content h2 {
+            margin: 2rem 0 1rem;
+            font-size: 1.8rem;
         }
 
-        .article-body tr:hover {
-            background: #f8f9fa;
+        .article-content h3 {
+            margin: 1.5rem 0 1rem;
+            font-size: 1.4rem;
+            color: var(--dark);
         }
 
-        /* Tags */
-        .article-tags {
-            margin: 40px 0 20px;
+        /* STYLE UNTUK ORDERED LIST (OL) DAN UNORDERED LIST (UL) */
+        .article-content ul,
+        .article-content ol {
+            margin: 1.5rem 0 2rem 2rem;
+            font-size: 1.1rem;
+        }
+
+        .article-content li {
+            margin-bottom: 0.75rem;
+            line-height: 1.6;
+        }
+
+        .article-content ul li {
+            list-style-type: disc;
+        }
+
+        .article-content ul li ul {
+            margin: 0.75rem 0 0.75rem 2rem;
+        }
+
+        .article-content ul li ul li {
+            list-style-type: circle;
+        }
+
+        .article-content ul li ul li ul li {
+            list-style-type: square;
+        }
+
+        .article-content ol li {
+            list-style-type: decimal;
+        }
+
+        .article-content ol li ol {
+            margin: 0.75rem 0 0.75rem 2rem;
+        }
+
+        .article-content ol li ol li {
+            list-style-type: lower-alpha;
+        }
+
+        .article-content ol li ol li ol li {
+            list-style-type: lower-roman;
+        }
+
+        /* Style untuk list yang lebih cantik dengan custom marker */
+        .article-content ul.custom-list {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .article-content ul.custom-list li {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .article-content ul.custom-list li::before {
+            content: "✓";
+            color: var(--primary);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .article-content ul.checklist {
+            list-style: none;
+            margin-left: 2rem;
+        }
+
+        .article-content ul.checklist li {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .article-content ul.checklist li::before {
+            content: "✅";
+            position: absolute;
+            left: 0;
+        }
+
+        .article-content ul.star-list {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .article-content ul.star-list li {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .article-content ul.star-list li::before {
+            content: "⭐";
+            position: absolute;
+            left: 0;
+        }
+
+        /* AUTHOR BOX */
+        .author-box {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin: 2.5rem 0;
             display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .tag {
-            background: #f1f1f1;
-            color: #666;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.9em;
-            transition: all 0.3s ease;
-        }
-
-        .tag:hover {
-            background: #667eea;
-            color: white;
-        }
-
-        /* Share buttons */
-        .share-buttons {
-            display: flex;
-            gap: 15px;
-            margin: 30px 0;
-            flex-wrap: wrap;
-        }
-
-        .share-btn {
-            padding: 10px 25px;
-            border: none;
-            border-radius: 5px;
-            color: white;
-            font-size: 1em;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .share-btn:hover {
-            transform: translateY(-3px);
-        }
-
-        .share-btn.facebook { background: #3b5998; }
-        .share-btn.twitter { background: #1da1f2; }
-        .share-btn.whatsapp { background: #25d366; }
-        .share-btn.linkedin { background: #0077b5; }
-
-        /* Author bio */
-        .author-bio {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            padding: 30px;
-            border-radius: 10px;
-            margin: 40px 0;
-            display: flex;
-            gap: 20px;
+            gap: 1.5rem;
             align-items: center;
-            flex-wrap: wrap;
+            border: 1px solid var(--gray);
+            box-shadow: var(--shadow);
         }
 
         .author-avatar {
             width: 100px;
             height: 100px;
             border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid white;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .author-info h3 {
-            margin-bottom: 10px;
-            color: #2c3e50;
-        }
-
-        .author-info p {
-            color: #555;
-            font-size: 0.95em;
-        }
-
-        /* Comments section */
-        .comments-section {
-            background: white;
-            border-radius: 15px;
-            padding: 40px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-        }
-
-        .comments-section h3 {
-            margin-bottom: 30px;
-            color: #2c3e50;
-        }
-
-        .comment {
+            background: var(--primary);
             display: flex;
-            gap: 20px;
-            margin-bottom: 30px;
-            padding-bottom: 30px;
-            border-bottom: 1px solid #eee;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5rem;
+            font-weight: bold;
+            flex-shrink: 0;
+            border: 4px solid white;
+            box-shadow: var(--shadow);
         }
 
-        .comment:last-child {
-            border-bottom: none;
-        }
-
-        .comment-avatar {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        .comment-content {
+        .author-info {
             flex: 1;
         }
 
-        .comment-header {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 10px;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .comment-name {
+        .author-name {
+            font-size: 1.5rem;
             font-weight: bold;
-            color: #2c3e50;
+            color: var(--dark);
+            margin-bottom: 0.25rem;
         }
 
-        .comment-date {
-            color: #888;
-            font-size: 0.85em;
+        .author-title {
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .comment-text {
-            color: #555;
+        .author-bio {
+            color: var(--secondary);
+            margin-bottom: 1rem;
             line-height: 1.6;
         }
 
-        .reply-btn {
-            background: none;
-            border: none;
-            color: #667eea;
-            cursor: pointer;
-            margin-top: 10px;
-            font-size: 0.9em;
+        .author-social {
+            display: flex;
+            gap: 1rem;
         }
 
-        .reply-btn:hover {
+        .author-social a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            transition: color 0.3s;
+        }
+
+        .author-social a:hover {
+            color: var(--primary);
+        }
+
+        .author-social i {
+            font-style: normal;
+            font-weight: bold;
+        }
+
+        /* RELATED POSTS */
+        .related-posts {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 2px dashed var(--gray);
+        }
+
+        .related-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .related-card {
+            background: var(--light);
+            border-radius: 0.75rem;
+            overflow: hidden;
+            transition: transform 0.3s;
+            border: 1px solid var(--gray);
+        }
+
+        .related-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow);
+        }
+
+        .related-card .card-image {
+            width: 100%;
+            height: 140px;
+            overflow: hidden;
+        }
+
+        .related-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s;
+        }
+
+        .related-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .related-card h4 {
+            padding: 1rem;
+            font-size: 1rem;
+        }
+
+        .related-card a {
+            text-decoration: none;
+            color: var(--dark);
+        }
+
+        .related-card a:hover {
+            color: var(--primary);
+        }
+
+        /* KOMENTAR */
+        .comments-section {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-top: 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .comments-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .comment-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .comment-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--gray);
+        }
+
+        .comment-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .comment-body {
+            flex: 1;
+        }
+
+        .comment-author {
+            font-weight: bold;
+            margin-bottom: 0.25rem;
+        }
+
+        .comment-date {
+            font-size: 0.85rem;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .comment-text {
+            margin-bottom: 0.5rem;
+        }
+
+        .comment-reply {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .comment-reply:hover {
             text-decoration: underline;
         }
 
-        /* Comment form */
+        /* FORM KOMENTAR */
         .comment-form {
-            margin-top: 40px;
+            margin-top: 2rem;
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 1rem;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 5px;
-            color: #555;
+            margin-bottom: 0.5rem;
             font-weight: 500;
         }
 
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
             font-family: inherit;
-            font-size: 1em;
-            transition: border-color 0.3s ease;
+            transition: border-color 0.3s;
         }
 
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: #667eea;
+            border-color: var(--primary);
         }
 
-        .form-group textarea {
-            min-height: 150px;
-            resize: vertical;
-        }
-
-        .submit-btn {
-            background: #667eea;
+        .btn-submit {
+            background: var(--primary);
             color: white;
             border: none;
-            padding: 15px 40px;
-            border-radius: 5px;
-            font-size: 1.1em;
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: background 0.3s;
         }
 
-        .submit-btn:hover {
-            background: #764ba2;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        .btn-submit:hover {
+            background: var(--primary-dark);
         }
 
-        /* Related posts */
-        .related-posts {
-            margin-top: 40px;
-            padding-top: 40px;
-            border-top: 1px solid #eee;
-        }
-
-        .related-posts h3 {
-            margin-bottom: 20px;
-            color: #2c3e50;
-        }
-
-        .related-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .related-item {
-            background: #f8f9fa;
-            border-radius: 10px;
-            overflow: hidden;
-            transition: transform 0.3s ease;
-        }
-
-        .related-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .related-item img {
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-        }
-
-        .related-item h4 {
-            padding: 15px;
-            font-size: 1.1em;
-            color: #2c3e50;
-        }
-
-        /* Footer */
-        footer {
-            background: #2c3e50;
+        /* FOOTER */
+        .footer {
+            background: var(--dark);
             color: white;
             text-align: center;
-            padding: 30px 0;
-            margin-top: 60px;
+            padding: 2rem;
+            margin-top: 3rem;
         }
 
-        /* Responsive */
+        /* RESPONSIVE DESIGN */
         @media (max-width: 768px) {
-            header {
-                padding: 40px 0;
+            .nav-container {
+                padding: 1rem;
             }
 
-            header h1 {
-                font-size: 2em;
+            .menu-toggle {
+                display: block;
             }
 
-            .article-content {
-                padding: 25px;
-            }
-
-            .article-body h2 {
-                font-size: 1.6em;
-            }
-
-            .article-body h3 {
-                font-size: 1.3em;
-            }
-
-            .article-body p {
-                font-size: 1em;
-            }
-
-            .author-bio {
+            .nav-menu {
+                display: none;
+                width: 100%;
                 flex-direction: column;
-                text-align: center;
+                gap: 1rem;
+                padding: 1rem 0;
             }
 
-            .share-buttons {
-                justify-content: center;
+            .nav-menu.active {
+                display: flex;
             }
 
-            .comment {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-
-            .comment-header {
-                justify-content: center;
-            }
-        }
-
-        @media (max-width: 480px) {
             .container {
-                padding: 0 15px;
+                padding: 0 1rem;
             }
 
-            .article-meta {
-                flex-direction: column;
-                gap: 10px;
+            .article-main {
+                padding: 1.5rem;
+            }
+
+            .article-title {
+                font-size: 2rem;
             }
 
             .related-grid {
                 grid-template-columns: 1fr;
             }
+
+            .author-box {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .author-social {
+                justify-content: center;
+            }
+
+            .article-content ul,
+            .article-content ol {
+                margin-left: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .article-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .comment-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .comment-avatar {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+
+            .article-main {
+                padding: 1rem;
+            }
+            
+            .article-title {
+                font-size: 1.8rem;
+            }
+
+            .author-avatar {
+                width: 80px;
+                height: 80px;
+                font-size: 2rem;
+            }
+
+            .author-name {
+                font-size: 1.25rem;
+            }
+
+            .article-content ul,
+            .article-content ol {
+                margin-left: 1rem;
+                font-size: 1rem;
+            }
         }
     </style>
+
+    
+
+    <script type="application/ld+json">
+        [{
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [{
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Ngoding Web Modern Itu Mudah",
+                "item": "https://tipkoding.github.io"
+            }]
+        }]
+    </script>
+
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            "headline": "Ngoding Web Modern Itu Mudah",
+            "description" : "Tutorial HTML, CSS, JavaScript dan backend lengkap untuk pemula. Panduan praktis belajar web development dari dasar sampai bisa bikin website.",
+            "datePublished": "2026-02-24T14:06:25+07:00",
+            "dateModified": "2026-02-24T14:44:26+07:00",
+            "image": [
+                "https://ahmadkuotabaru-netizen.github.io/blog/koder-web.jpg"
+            ],
+
+            "author": {
+                "@type": "Person",
+                "name": "ahmad",
+                "url": "https://tipkoding.github.io/author/ahmad"
+            }
+
+        }
+    </script>
+
+    
+
+
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>Blog Saya</h1>
-            <p>Berbagi cerita dan pengetahuan</p>
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="logo">TipKoding</a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="/">Beranda</a></li>
+                <li><a href="#">Tentang</a></li>
+                <li><a href="#">Kontak</a></li>
+            </ul>
         </div>
-    </header>
+    </nav>
 
+    <!-- MAIN CONTENT -->
     <main class="container">
-        <article class="article-content">
-            <!-- Meta informasi artikel -->
-            <div class="article-meta">
-                <span><i>📅</i> 20 Februari 2026</span>
-                <span><i>✍️</i> Penulis: Ahmad Fauzi</span>
-                <span><i>📚</i> Kategori: Teknologi</span>
-                <span><i>⏱️</i> 5 menit membaca</span>
-            </div>
-
-            <!-- Featured image -->
-            <div class="featured-image">
-                <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1200" alt="Featured image">
-            </div>
-
-            <!-- Judul artikel -->
-            <h1 style="font-size: 2.5em; margin-bottom: 20px; color: #2c3e50;">Cara Membuat Template Artikel dengan HTML5 dan CSS3</h1>
-
-            <!-- Body artikel -->
-            <div class="article-body">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
-
-                <h2>1. Persiapan Awal</h2>
-                <p>Sebelum memulai, pastikan Anda memiliki teks editor dan browser untuk melihat hasilnya. HTML5 memberikan struktur yang lebih semantik, sementara CSS3 memungkinkan kita membuat desain yang menarik dengan animasi dan transisi.</p>
-
-                <h3>1.1 Struktur Dasar HTML5</h3>
-                <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang="id"&gt;
-&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-    &lt;title&gt;Judul Artikel&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;header&gt;
-        &lt;h1&gt;Judul Website&lt;/h1&gt;
-    &lt;/header&gt;
-    &lt;main&gt;
-        &lt;article&gt;
-            &lt;h2&gt;Judul Artikel&lt;/h2&gt;
-            &lt;p&gt;Konten artikel...&lt;/p&gt;
-        &lt;/article&gt;
-    &lt;/main&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-
-                <h2>2. Desain Responsif dengan CSS3</h2>
-                <p>CSS3 memberikan kemampuan untuk membuat desain yang responsif menggunakan media queries. Ini penting agar artikel terlihat baik di semua perangkat.</p>
-
-                <blockquote>
-                    <p>"Desain yang baik bukan hanya tentang bagaimana tampilannya, tapi juga bagaimana fungsinya. HTML5 dan CSS3 memberi kita alat untuk membuat website yang indah sekaligus fungsional."</p>
-                    <cite>- John Doe, Web Developer</cite>
-                </blockquote>
-
-                <h3>2.1 Tips Menulis Artikel yang Baik</h3>
-                <ul>
-                    <li>Gunakan heading (h1-h6) secara hierarkis</li>
-                    <li>Tambahkan gambar untuk memperjelas konten</li>
-                    <li>Buat paragraf yang tidak terlalu panjang</li>
-                    <li>Sertakan kutipan untuk variasi</li>
-                    <li>Gunakan list untuk informasi yang terstruktur</li>
-                </ul>
-
-                <h3>2.2 Contoh Tabel Data</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Teknologi</th>
-                            <th>Fungsi</th>
-                            <th>Tingkat Kesulitan</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>HTML5</td>
-                            <td>Struktur konten</td>
-                            <td>Mudah</td>
-                        </tr>
-                        <tr>
-                            <td>CSS3</td>
-                            <td>Tampilan dan gaya</td>
-                            <td>Sedang</td>
-                        </tr>
-                        <tr>
-                            <td>JavaScript</td>
-                            <td>Interaktivitas</td>
-                            <td>Sulit</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <h2>3. Kesimpulan</h2>
-                <p>Dengan HTML5 dan CSS3, kita bisa membuat template artikel yang modern, responsif, dan mudah dibaca. Template ini bisa dikembangkan lebih lanjut dengan menambahkan fitur-fitur seperti dark mode, animasi scroll, atau integrasi dengan CMS.</p>
-
-                <!-- Contoh gambar dalam artikel -->
-                <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800" alt="Coding illustration">
-            </div>
-
-            <!-- Tags -->
-            <div class="article-tags">
-                <span class="tag">HTML5</span>
-                <span class="tag">CSS3</span>
-                <span class="tag">Web Design</span>
-                <span class="tag">Tutorial</span>
-                <span class="tag">Responsive</span>
-            </div>
-
-            <!-- Share buttons -->
-            <div class="share-buttons">
-                <a href="#" class="share-btn facebook">Facebook</a>
-                <a href="#" class="share-btn twitter">Twitter</a>
-                <a href="#" class="share-btn whatsapp">WhatsApp</a>
-                <a href="#" class="share-btn linkedin">LinkedIn</a>
-            </div>
-
-            <!-- Author bio -->
-            <div class="author-bio">
-                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Author" class="author-avatar">
-                <div class="author-info">
-                    <h3>Ahmad Fauzi</h3>
-                    <p>Web developer dan content writer dengan pengalaman 5+ tahun. Suka berbagi pengetahuan tentang teknologi dan pemrograman.</p>
+        <article class="article-main">
+            <header class="article-header">
+                <h1 class="article-title">Daftar Tutorial Posting TipKoding</h1>
+                <div class="article-meta">
+                    
                 </div>
-            </div>
-        </article>
+            </header>
 
-        <!-- Related posts -->
-        <div class="related-posts">
-            <h3>Artikel Terkait</h3>
-            <div class="related-grid">
-                <div class="related-item">
-                    <img src="https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?w=400" alt="CSS Flexbox">
-                    <h4>Belajar CSS Flexbox untuk Pemula</h4>
-                </div>
-                <div class="related-item">
-                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400" alt="JavaScript">
-                    <h4>Dasar-dasar JavaScript yang Perlu Diketahui</h4>
-                </div>
-                <div class="related-item">
-                    <img src="https://images.unsplash.com/photo-1523437113738-bbd3cc89f19f?w=400" alt="Responsive Design">
-                    <h4>Tips Membuat Website Responsif</h4>
-                </div>
+            <!-- GAMBAR UTAMA ARTIKEL - RESPONSIF -->
+            <div class="article-image">
+                <img src="https://ahmadkuotabaru-netizen.github.io/blog/koder-web.jpg" alt="Ngoding Web Modern Itu Mudah" title="Ngoding Web Modern Itu Mudah" >
             </div>
-        </div>
 
-        <!-- Comments section -->
-        <div class="comments-section">
-            <h3>Komentar (3)</h3>
             
-            <!-- Comment 1 -->
-            <div class="comment">
-                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User" class="comment-avatar">
-                <div class="comment-content">
-                    <div class="comment-header">
-                        <span class="comment-name">Siti Nurhaliza</span>
-                        <span class="comment-date">20 Februari 2026, 10:30</span>
-                    </div>
-                    <p class="comment-text">Artikelnya sangat bermanfaat! Saya jadi paham cara membuat template artikel yang baik. Terima kasih!</p>
-                    <button class="reply-btn">Balas</button>
-                </div>
-            </div>
 
-            <!-- Comment 2 -->
-            <div class="comment">
-                <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="User" class="comment-avatar">
-                <div class="comment-content">
-                    <div class="comment-header">
-                        <span class="comment-name">Budi Santoso</span>
-                        <span class="comment-date">19 Februari 2026, 15:45</span>
-                    </div>
-                    <p class="comment-text">Boleh minta source code-nya? Saya mau belajar lebih dalam. Terima kasih sebelumnya.</p>
-                    <button class="reply-btn">Balas</button>
-                </div>
-            </div>
+            <!-- KONTEN ARTIKEL DENGAN GAMBAR DI TENGAH DAN LIST -->
+            <div class="article-content">
+            
+<p>Di zaman serba digital seperti sekarang, punya website sendiri bukan lagi hal yang sulit atau mahal. Bahkan, siapa pun bisa membuat website tanpa harus menjadi programmer profesional. Baik untuk kebutuhan bisnis, portofolio pribadi, blog, maupun toko online, website bisa menjadi aset digital yang sangat powerful.</p>
 
-            <!-- Comment form -->
-            <div class="comment-form">
-                <h4 style="margin-bottom: 20px; color: #2c3e50;">Tinggalkan Komentar</h4>
-                <form>
-                    <div class="form-group">
-                        <label for="name">Nama</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="comment">Komentar</label>
-                        <textarea id="comment" name="comment" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">Kirim Komentar</button>
-                </form>
-            </div>
-        </div>
+<p>Banyak orang masih berpikir bahwa membuat website itu rumit dan membutuhkan biaya besar. Padahal, dengan tools dan panduan yang tepat, kamu bisa mulai dari nol hingga website kamu online dan bisa diakses siapa saja. Yang kamu butuhkan hanyalah kemauan belajar dan langkah yang benar.</p>
+
+<p>Kalau kamu ingin punya website sendiri tanpa ribet dan tanpa harus bergantung pada orang lain, simak panduan lengkapnya sampai selesai!.</p>
+
+                
+
+
+<ul class="checklist">
+<li><a class="node-hover" href="/buat-web-dinamis-php.html" rel="noopener noreferrer nofollow" target="_blank" style="text-decoration: none;">Cara Membuat Web Dinamis Dengan PHP Dan HTML</a></li></ul>       
+</div>
+
+            <!-- AUTHOR BOX - DITEMPATKAN DI ATAS RELATED POSTS -->
+            
+
+            <!-- RELATED POSTS -->
+            
+
+            <!-- KOLOM KOMENTAR -->
+            
+        </article>
     </main>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Blog Saya. All rights reserved.</p>
-        </div>
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>&copy; 2026 <a href="/" style="color: white;text-decoration: none;">TIPKODING</a></p>
     </footer>
+
+
+
+    <!-- SCRIPT UNTUK TOGGLE MENU (RESPONSIVE) -->
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Tutup menu jika klik di luar (opsional, untuk kenyamanan)
+        document.addEventListener('click', (event) => {
+            if (!menuToggle.contains(event.target) && !navMenu.contains(event.target)) {
+                navMenu.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 </html>

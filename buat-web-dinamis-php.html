@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Template Artikel · Pure CSS</title>
+    
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css"
+      integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls"
+      crossorigin="anonymous"
+    />
+
+    <title>Cara Membuat Web Dinamis Dengan PHP Dan HTML</title>
+    <meta name="description" content="Cara membuat web dinamis dengan php dan html yang dapat diakses di halaman home, halaman tentang dan halaman kontak dengan variabel global php GET." />
+    <meta name="keywords" content="cara membuat web dinamis dengan php dan html, membuat website dinamis" />
+    <meta name="author" content="ahmad">
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
+    <link rel="canonical" href="https://tipkoding.github.io/buat-web-dinamis-php.html">
+
+    
+    <meta property="og:url"                content="https://tipkoding.github.io/buat-web-dinamis-php.html" />
+    <meta property="og:type"               content="article" />
+    <meta property="og:title"              content="Cara Membuat Web Dinamis Dengan PHP Dan HTML" />
+    <meta property="og:description"        content="Cara membuat web dinamis dengan php dan html yang dapat diakses di halaman home, halaman tentang dan halaman kontak dengan variabel global php GET." />
+    <meta property="og:image"              content="https://ahmadkuotabaru-netizen.github.io/blog/tipkoding-63598.jpg" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@tipkoding" />
+    <meta name="twitter:title" content="Cara Membuat Web Dinamis Dengan PHP Dan HTML" />
+    <meta name="twitter:description" content="Cara membuat web dinamis dengan php dan html yang dapat diakses di halaman home, halaman tentang dan halaman kontak dengan variabel global php GET." />
+    <meta name="twitter:image" content="https://ahmadkuotabaru-netizen.github.io/blog/tipkoding-63598.jpg" />
+
+    <script type="application/ld+json">
+    [{
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Ngoding Web Modern Itu Mudah",
+        "item": "https://tipkoding.github.io"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Cara Membuat Web Dinamis Dengan PHP Dan HTML",
+        "item": "https://tipkoding.github.io/buat-web-dinamis-php.html"
+      }]
+     }]
+     </script>
+
+     <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Cara Membuat Web Dinamis Dengan PHP Dan HTML",
+      "description" : "Cara membuat web dinamis dengan php dan html yang dapat diakses di halaman home, halaman tentang dan halaman kontak dengan variabel global php GET.",
+      "datePublished": "2026-02-24T14:06:25-07:00",
+      "dateModified": "2026-02-24T14:44:26-07:00" ,
+      "image": [
+        
+        "https://ahmadkuotabaru-netizen.github.io/blog/tipkoding-63598.jpg"
+        
+       ],
+      
+      "author": {
+        "@type": "Person",
+        "name": "ahmad",
+        "url": "https://tipkoding.github.io/author/ahmad.html"
+      }
+
+     }
+     </script>
+
+
+    <link rel="icon" href="https://ahmadkuotabaru-netizen.github.io/blog/kode-fav.png" type="image/x-icon">
+    
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: #faf9f8;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+          'Helvetica Neue', Arial, sans-serif;
+        line-height: 1.7;
+        color: #1e1e2f;
+        padding: 2rem 1rem;
+      }
+
+       
+      .article-container {
+        max-width: 780px;
+        margin: 0 auto;
+        background: white;
+        border-radius: 24px;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+        padding: 2.5rem 2.8rem;
+      }
+
+       
+      .article-header {
+        text-align: left;
+        margin-bottom: 2.5rem;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 1.8rem;
+      }
+
+      .article-header h1 {
+        font-size: 2.6rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        line-height: 1.2;
+        margin: 0 0 0.5rem 0;
+        color: #121212;
+      }
+
+      .article-meta {
+        color: #666;
+        font-size: 0.95rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0 1.5rem;
+      }
+
+      .article-meta span {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+       
+      .article-content h2 {
+        font-size: 1.9rem;
+        font-weight: 600;
+        margin: 2rem 0 1rem 0;
+        letter-spacing: -0.01em;
+        border-bottom: 2px solid #f0f0f0;
+        padding-bottom: 0.3rem;
+      }
+
+      .article-content h3 {
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin: 1.8rem 0 0.8rem 0;
+        color: #222;
+      }
+
+      .article-content p {
+        margin-bottom: 1.5rem;
+        font-size: 1.1rem;
+        color: #2c2c3a;
+      }
+
+      .article-content p:last-child {
+        margin-bottom: 0;
+      }
+
+      .article-content a {
+        color: #2563eb;
+        text-decoration: none;
+        border-bottom: 1px dotted #a5c9ff;
+      }
+
+      .article-content a:hover {
+        border-bottom: 1px solid #2563eb;
+      }
+
+       
+      .article-content blockquote {
+        margin: 2rem 0;
+        padding: 1.2rem 2rem;
+        background: #f4f6f9;
+        border-left: 5px solid #2563eb;
+        font-style: normal;
+        border-radius: 0 16px 16px 0;
+        color: #1f2937;
+        font-size: 1.1rem;
+      }
+
+      .article-content blockquote p {
+        margin-bottom: 0.5rem;
+      }
+
+      .article-content blockquote footer {
+        font-size: 0.95rem;
+        color: #4b5563;
+        margin-top: 0.5rem;
+      }
+
+       
+      .article-content .pure-img {
+        margin: 2rem auto;
+        border-radius: 20px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+        display: block;
+        max-width: 100%;
+        height: auto;
+      }
+
+       
+      .article-content ul,
+      .article-content ol {
+        margin: 1.2rem 0 1.8rem 2rem;
+        font-size: 1.1rem;
+      }
+
+      .article-content li {
+        margin-bottom: 0.4rem;
+      }
+
+       
+      .article-footer {
+        margin-top: 3rem;
+        padding-top: 1.5rem;
+        border-top: 2px solid #eaeaea;
+        font-size: 0.95rem;
+        color: #4b5563;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .article-tags {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+
+      .article-tags span {
+        background: #f0f2f5;
+        padding: 0.25rem 1rem;
+        border-radius: 30px;
+        font-size: 0.85rem;
+        color: #2c3e50;
+      }
+
+       
+      pre {
+        background: #1e1e2f;
+        color: #f8f8f2;
+        padding: 1.2rem;
+        border-radius: 16px;
+        overflow-x: auto;
+        font-size: 0.9rem;
+        margin: 2rem 0;
+      }
+
+      code {
+        font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Courier New', monospace;
+        background: #f0f0f0;
+        color: #d63384;
+        padding: 0.2rem 0.4rem;
+        border-radius: 8px;
+        font-size: 0.9em;
+      }
+
+      pre code {
+        background: transparent;
+        color: inherit;
+        padding: 0;
+      }
+
+       
+      @media (max-width: 580px) {
+        body {
+          padding: 1rem 0.5rem;
+        }
+        .article-container {
+          padding: 1.8rem 1.2rem;
+        }
+        .article-header h1 {
+          font-size: 2rem;
+        }
+        .article-content p {
+          font-size: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <div class="article-container">
+      
+      <header class="article-header">
+        <h1>Cara Membuat Web Dinamis Dengan PHP Dan HTML</h1>
+        <div class="article-meta">
+          <span>📅 24 February 2026</span>
+          <span>✍️ Penulis : Ahmad M</span>
+          <span>⏱️ 5 menit baca</span>
+        </div>
+      </header>
+
+      
+      <main class="article-content">
+        
+
+        <p>Banyak pemula di dunia pemrograman web mulai mencari tahu tentang Cara Membuat Web Dinamis Dengan PHP Dan HTML karena teknologi ini menjadi fondasi penting dalam pengembangan website modern. Jika dulu website hanya menampilkan informasi statis yang tidak berubah, kini hampir semua situs sudah bersifat dinamis dan interaktif.</p>
+<p>Web dinamis memungkinkan pengguna untuk berinteraksi langsung dengan sistem, seperti mengisi formulir, melakukan login, menampilkan data dari database, hingga mengelola konten secara real-time. Di sinilah peran PHP sebagai bahasa pemrograman server-side sangat dibutuhkan, sementara HTML berfungsi sebagai struktur utama tampilan halaman web.</p>
+<p>Memahami Cara Membuat Web Dinamis Dengan PHP Dan HTML bukan hanya penting bagi calon web developer, tetapi juga bagi siapa saja yang ingin membangun website profesional tanpa harus langsung menggunakan framework yang kompleks. Dengan memahami dasar-dasarnya, kamu akan lebih mudah mengembangkan fitur yang lebih canggih di masa depan.</p>
+<p>Pada artikel ini, kita akan membahas langkah demi langkah bagaimana membangun web dinamis dari nol, mulai dari konsep dasar, struktur file, hingga contoh kode sederhana yang bisa langsung kamu praktikkan.</p>
+<h2>Tutorial Web Dinamis Dengan PHP Dan HTML</h2>
+<p>Untuk membuat web dinamis dengan php dan html, ikutilah langkah-langkah tahapan berikut ini.</p>
+<h3>1. Contoh script php dengan variabel global php get</h3>
+<p>Sebagai contoh dasar pembuatan web dinamis dengan php, perhatikan kode php berikut ini yang menggunakan variabel global php GET.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>&lt;?php if( isset( $_GET[&#39;halaman&#39;] ) &amp;&amp; $_GET[&#39;halaman&#39;] == &#39;home&#39; ) : ?&gt;
+</span></span><span style="display:flex;"><span>&lt;b&gt;Halaman yang diakses&lt;/b&gt;
+</span></span><span style="display:flex;"><span>&lt;?php endif; ?&gt;</span></span></code></pre></div>
+<p class="jarakp"><b>Penjelasan dengan script php diatas :</b></p>
+<p>Dari contoh script php di atas dapat disimpulkan bawah suatu halaman php akan dapat diakses dengan menggunakan fungsi php GET dengan nama "halaman". Sedangkan halaman yang dituju adalah halaman "home".</p>
+<p>Alamat URL website yang terbentuk yang dapat diakses melalui browser nantinya adalah sebagai berikut :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>/?halaman=home</span></span></code></pre></div>
+<p class="jarakp">Kode script php selengkapnya nantinya adalah seperti berikut ini :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>&lt;?php if( isset( $_GET[&#39;halaman&#39;] ) &amp;&amp; $_GET[&#39;halaman&#39;] == &#39;home&#39; ) : ?&gt;
+</span></span><span style="display:flex;"><span>&lt;?php include &#39;home.php&#39;; ?&gt;
+</span></span><span style="display:flex;"><span>&lt;?php endif; ?&gt;</span></span></code></pre></div>
+<p class="jarakp">Selanjutnya kita akan membuat halaman home, tentang dan kontak dengan dasar script php di atas tersebut.</p>
+<h3>2. Membuat Halaman Home, Tentang Dan Kontak</h3>
+<p>Halaman web dinamis php yang akan dibuat adalah tiga halaman, yaitu halaman home, halaman tentang dan halaman kontak. Untuk membuat masing-masing halaman tersebut, ikuti langkah-langkah berikut : </p>
+<p>a. Buat script php dengan nama home.php dan isilah dengan kalimat tulisan berikut ini:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Halaman Home</span></span></code></pre></div>
+<p class="jarakp">Nantinya halaman tersebut akan dinamakan halaman home.</p>
+<p>b. Selanjutnya membuat halaman tentang dan kontak. Untuk membuat halaman tentang dan kontak buatlah file php dengan nama tentang.php dan kontak.php. Isilah ke dalam file php tentang.php dengan kalimat tulisan : Halaman tentang. Sedangkan untuk file kontak.php, isilah dengan kalimat tulisan : Halaman kontak.</p>
+<h2>Template html</h2>
+<p>Pada tutorial kali ini, saya hanya akan menggunakan template html yang paling sederhana. Tanpa css. Berikut ini contohnya.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>&lt;!DOCTYPE html&gt;
+</span></span><span style="display:flex;"><span>&lt;html&gt;
+</span></span><span style="display:flex;"><span>&lt;head&gt;
+</span></span><span style="display:flex;"><span>  &lt;meta charset=&#34;utf-8&#34;&gt;
+</span></span><span style="display:flex;"><span>  &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1&#34;&gt;
+</span></span><span style="display:flex;"><span>  &lt;title&gt;Web Dinamis Dengan PHP&lt;/title&gt;
+</span></span><span style="display:flex;"><span>&lt;/head&gt;
+</span></span><span style="display:flex;"><span>&lt;body&gt;
+</span></span><span style="display:flex;"><span>&lt;div&gt;
+</span></span><span style="display:flex;"><span>  &lt;a href=&#34;/web/?halaman=home&#34;&gt;Home&lt;/a&gt;
+</span></span><span style="display:flex;"><span>  &lt;a href=&#34;/web/?halaman=tentang&#34;&gt;Tentang&lt;/a&gt;
+</span></span><span style="display:flex;"><span>  &lt;a href=&#34;/web/?halaman=kontak&#34;&gt;Kontak&lt;/a&gt;
+</span></span><span style="display:flex;"><span>&lt;/div&gt; 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;h1&gt;Web Dinamis Dengan PHP&lt;/h1&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>&lt;/body&gt;
+</span></span><span style="display:flex;"><span>&lt;/html&gt;</span></span></code></pre></div>
+<p class="jarakp">Template html di atas sudah digabungkan dengan navigasi web yang nantinya jika diklik akan mengarah ke halaman yang dituju yaitu halaman home, halaman tentang dan halaman kontak.</p>
+<p>Contoh navigasi website yang dimaksud adalah sebagai berikut :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>&lt;div&gt;
+</span></span><span style="display:flex;"><span>  &lt;a href=&#34;/web/?halaman=home&#34;&gt;Home&lt;/a&gt;
+</span></span><span style="display:flex;"><span>  &lt;a href=&#34;/web/?halaman=tentang&#34;&gt;Tentang&lt;/a&gt;
+</span></span><span style="display:flex;"><span>  &lt;a href=&#34;/web/?halaman=kontak&#34;&gt;Kontak&lt;/a&gt;
+</span></span><span style="display:flex;"><span>&lt;/div&gt; </span></span></code></pre></div>
+<h2>Menggabungkan Kode PHP Dan Kode HTML</h2>
+<p>Script sederhana php sudah dibuat dan script sederhana HTML juga sudah dibuat. Maka saatnya kita gabungkan kedua script tersebut yaitu script php dan html. Jika digabungkan kedua contoh script kode tersebut, hasilnya adalah sebagai berikut :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>&lt;!DOCTYPE html&gt;
+</span></span><span style="display:flex;"><span>&lt;html&gt;
+</span></span><span style="display:flex;"><span>&lt;head&gt;
+</span></span><span style="display:flex;"><span>  &lt;meta charset=&#34;utf-8&#34;&gt;
+</span></span><span style="display:flex;"><span>  &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1&#34;&gt;
+</span></span><span style="display:flex;"><span>  &lt;title&gt;Web Dinamis Dengan PHP&lt;/title&gt;
+</span></span><span style="display:flex;"><span>&lt;/head&gt;
+</span></span><span style="display:flex;"><span>&lt;body&gt;
+</span></span><span style="display:flex;"><span>&lt;div&gt;
+</span></span><span style="display:flex;"><span>  &lt;a href=&#34;/web/?halaman=home&#34;&gt;Home&lt;/a&gt;
+</span></span><span style="display:flex;"><span>  &lt;a href=&#34;/web/?halaman=tentang&#34;&gt;Tentang&lt;/a&gt;
+</span></span><span style="display:flex;"><span>  &lt;a href=&#34;/web/?halaman=kontak&#34;&gt;Kontak&lt;/a&gt;
+</span></span><span style="display:flex;"><span>&lt;/div&gt; 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;h1&gt;Web Dinamis Dengan PHP&lt;/h1&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;?php if( isset( $_GET[&#39;halaman&#39;] ) &amp;&amp; $_GET[&#39;halaman&#39;] == &#39;home&#39; ) : ?&gt;
+</span></span><span style="display:flex;"><span>&lt;?php include &#39;home.php&#39;; ?&gt;
+</span></span><span style="display:flex;"><span>&lt;?php endif; ?&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;?php if( isset( $_GET[&#39;halaman&#39;] ) &amp;&amp; $_GET[&#39;halaman&#39;] == &#39;tentang&#39; ) : ?&gt;
+</span></span><span style="display:flex;"><span>&lt;?php include &#39;tentang.php&#39;; ?&gt;
+</span></span><span style="display:flex;"><span>&lt;?php endif; ?&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;?php if( isset( $_GET[&#39;halaman&#39;] ) &amp;&amp; $_GET[&#39;halaman&#39;] == &#39;kontak&#39; ) : ?&gt;
+</span></span><span style="display:flex;"><span>&lt;?php include &#39;kontak.php&#39;; ?&gt;
+</span></span><span style="display:flex;"><span>&lt;?php endif; ?&gt;
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>&lt;/body&gt;
+</span></span><span style="display:flex;"><span>&lt;/html&gt;</span></span></code></pre></div>
+<p class="jarakp"><b>Penjelasan singkat tentang script webdinamis php dan html di atas.</b></p>
+<p>Dengan fungsi php GET dibuatlah suatu alamat url webiste dengan nama "halaman" yang akan membuka file home.php, tentang.php dan kontak.php. Jika masing-masing halaman tersebut diakses menggunakan browser, maka masing-masing alamat url untuk tiap halaman tersebut adalah sebagai berikut :</p>
+<p><b>1. Halaman home.</b></p>
+<p>Saya telah membuat konfigurasi untuk apache server, mariadb dan php di localhost di komputer Windows 11 saya. Sebenarnya ada beberapa aplikasi yang sudah berisi aplikasi apache server, mysql dan php. Contohnya adalah bitnami, xampp server dan masih banyak lagi beberapa aplikasi yang serupa. Dengan menggunakan aplikasi tersebut script web dinamias php dan html akan dapat dijalankan dengan sempurna.</p>
+<p>Pada contoh pembuatan web dinamis dengan php dan html ini, anda akan dapat mengakses melalui browser halaman dinamis untuk home, tentang dan kontak. Untuk alamat url webiste halaman home, anda dapat mengakses di alamat url website berikut.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>https://localhost/?halaman=home</span></span></code></pre></div>
+<p class="jarakp">Tampilan ini adalah contoh Halaman Home yang nantinya bisa anda akses.</p>
+<p><img
+class="pure-img"
+src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg4ag9NOWVne5AJRbYcvEFBiapEZT-xOvXWlR6sLNWhyuPzd_POSEGN3Uoj_2qDmD4xHmQdkVGt_9OCJQGzNJ_aAXcvZvP4W3BbkPTD-heSPiNMwu8OD6XP4_OuO5BWfVbFR824-UCprQl_z1RcZ7QOUWxNQvjV-99gDbr4zNz3uPYL4_4MnR4vC5Cf8gI/s1024/web-dinamis-php-1.jpg"
+alt="Cara Membuat Web Dinamis Dengan PHP dan HTML"
+title="Cara Membuat Web Dinamis Dengan PHP dan HTML"
+loading="lazy"
+/></p>
+<p>Selanjutnya adalah halaman tentang.</p>
+<p><b>2. Halaman tentang.</b></p>
+<p>Untuk halaman tentang, berikut ini adalah contoh alamat url webiste yang dapat diakses.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>https://webdinamis.admin/web/?halaman=tentang</span></span></code></pre></div>
+<p class="jarakp">Tampilan ini adalah contoh Halaman Tentang yang nantinya bisa anda akses.</p>
+<p><img
+class="pure-img"
+src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiuDH6k_ywilCcI0EZDNehosXl08V1n7ibuWVAhy1GXH0vFGYyqF951O9vDVsJQZeItCXjZYPntipJEsedM50dgcEeiJaP-mB8orBj_iWieg745GfInrWxHwfaP-6-EEgkA-6IKOAg39PYwoReXjCLdVYs10yrIPYreplAxS3vzWofJOrkBErm-ISWul6c/s1024/web-dinamis-php-2.jpg"
+alt="Cara Membuat Web Dinamis Dengan PHP dan HTML"
+title="Cara Membuat Web Dinamis Dengan PHP dan HTML"
+loading="lazy"
+/></p>
+<p>Selanjutnya adalah halaman kontak.</p>
+<p><b>3. Halaman kontak.</b></p>
+<p>Untuk halaman kontak, berikut ini adalah contoh alamat url website yang nantinya bisa anda akses.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>https://webdinamis.admin/web/?halaman=kontak</span></span></code></pre></div>
+<p class="jarakp">Tampilan ini adalah contoh Halaman Kontak yang nantinya bisa anda akses.</p>
+<p><img
+class="pure-img"
+src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiCPFFjdU1zif6lM6N2a8Dl-OdTRmCaCZ_0_0-LO1fha95T-tLGFh2BrjPEkiu4eDBydVUcJIgCYVOlorRdezDxXfII9kOBIG-rkxdgwoB8Lg0ix-PvHu2FJgvqoek6RvDfr59cwCriVbOD1SIQ9tZX2YJ_Tovkf0l93iyF39jLRvMnFXRUZRXzUlguLIw/s1024/web-dinamis-php-3.jpg"
+alt="Cara Membuat Web Dinamis Dengan PHP dan HTML"
+title="Cara Membuat Web Dinamis Dengan PHP dan HTML"
+loading="lazy"
+/></p>
+<h2>Kesimpulan</h2>
+<p>Pembuatan web dinamis dengan php dan html yang dicontohkan di artikel ini adalah contoh web dinamis php yang masih sangat sederhana. Tutorial kali ini hanyalah sebagai contoh dasar bagaimana php dapat digunakan untuk membuat web dinamis yang berbasis php dan html. Bila anda ingin menampung data website dinamis tersebut, anda bisa menggunakan mysql server sebagai database server. Nantinya data website tersebut dapat diakses menggunakan browser dengan kombinasi antara html dan css. HTML dan CSS digunakan untuk membuat tampilan halaman website tampil lebih cantik dan responsive. Website yang responsive maksudnya adalah website yang dapat tertampil di handphone anda, sesuai dengan tampilan layout handphone yang anda gunakan.</p>
+<p>Semoga dengan tutorial kali ini, anda bisa mempunyai ide yang lebih baik tentang bagaimana <b class="thick">cara membuat web dinamis dengan php dan html</b> yang lebih bagus. Dengan dasar tutorial ini, nantinya saya akan membuat tutorial membuat web dinamis dengan php, html, css dan mysql server sebagai database server yang akan menampung data website yang dibuat.</p>
+
+
+        
+      </main>
+
+      
+      <footer class="article-footer">
+        <div class="article-tags">
+          <span><p>&copy; 2026 <a href="http://localhost:1313/" style="text-decoration: none;">TIPKODING</a></p></span>
+          
+        </div>
+        <div></div>
+      </footer>
+    </div>
+    
+  </body>
+</html>
